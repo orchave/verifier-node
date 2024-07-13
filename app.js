@@ -26,8 +26,9 @@ if (cluster.isMaster) {
   const MAX_SERVER_PARAMETER_LIMIT = 50000;
   const PORT = process.env.PORT || 10101;
 
-  const apiRouteController = require('./routes/apiRoute');
-  const gossipRouteController = require('./routes/gossipRoute');
+  const Job = require('./cron/Job');
+
+  const gossipGetController = require('./gossip/get');
 
   app.use(bodyParser.json({ limit: MAX_SERVER_UPLOAD_LIMIT }));
   app.use(bodyParser.urlencoded({
@@ -45,10 +46,14 @@ if (cluster.isMaster) {
     next();
   });
 
-  app.use('/api', apiRouteController);
-  app.use('/gossip', gossipRouteController);
+  app.get('/gossip', gossipGetController);
 
   server.listen(PORT, () => {
+    if (cluster.worker.id == 1)
+      Job.start(() => {
+        console.log(`Cron Jobs are started on Worker ${cluster.worker.id}`);
+      });
+
     console.log(`Server is on port ${PORT} as Worker ${cluster.worker.id} running @ process ${cluster.worker.process.pid}`);
   });
 }

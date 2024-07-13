@@ -6,7 +6,7 @@ const writeDatabase = require('../../database/functions/write');
 
 const verifyBlock = require('../../utils/verifyBlock');
 
-module.exports = (callback) => {
+module.exports = callback => {
   readAvail((err, latest_block) => {
     if (err) return callback(err);
 

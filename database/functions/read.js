@@ -1,3 +1,5 @@
+// Read from local file database with the given key
+
 const fs = require('fs');
 
 module.exports = (key, callback) => {
