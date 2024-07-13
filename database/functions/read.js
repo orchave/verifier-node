@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = (key, callback) => {
-  fs.readFile('../data.json', (err, _file) => {
+  fs.readFile('../data.txt', (err, _file) => {
     if (err) return callback('fs_read_error');
 
     try {
