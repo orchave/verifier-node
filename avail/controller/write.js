@@ -1,17 +1,17 @@
 const { initialize, getKeyringFromSeed } = require('avail-js-sdk');
 
-const RPCConfig = require('../RPCConfig');
+const ClientConfig = require('../ClientConfig.json');
 
 module.exports = (data, callback) => {
   if (!data)
     return callback('bad_request');
 
-  initialize(RPCConfig.endpoint, (err, initializedAPI) => {
+  initialize(ClientConfig.endpoint, (err, initializedAPI) => {
     if (err)
       return callback('rpc_connection_error');
 
-    const userAccount = getKeyringFromSeed(RPCConfig.seed);
-    const appID = RPCConfig.appID == 0 ? 1 : RPCConfig.appID;
+    const userAccount = getKeyringFromSeed(ClientConfig.seed);
+    const appID = ClientConfig.appID == 0 ? 1 : ClientConfig.appID;
 
     initializedAPI.tx.dataAvailability
       .submitData(data)
