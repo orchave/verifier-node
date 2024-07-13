@@ -1,0 +1,19 @@
+{
+  "name": "verifier-node",
+  "version": "1.0.0",
+  "description": "Orchave verifier node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orchave/verifier-node.git"
+  },
+  "author": "node101",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orchave/verifier-node/issues"
+  },
+  "homepage": "https://github.com/orchave/verifier-node#readme"
+}
