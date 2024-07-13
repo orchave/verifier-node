@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/orchave/verifier-node/issues"
   },
-  "homepage": "https://github.com/orchave/verifier-node#readme"
+  "homepage": "https://github.com/orchave/verifier-node#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "node-cron": "^3.0.3"
+  }
 }
