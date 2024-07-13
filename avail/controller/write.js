@@ -8,7 +8,7 @@ module.exports = (data, callback) => {
 
   initialize(RPCConfig.endpoint, (err, initializedAPI) => {
     if (err)
-      return callback(rpc_connection_error);
+      return callback('rpc_connection_error');
 
     const userAccount = getKeyringFromSeed(RPCConfig.seed);
     const appID = RPCConfig.appID == 0 ? 1 : RPCConfig.appID;
