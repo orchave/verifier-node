@@ -12,10 +12,13 @@ module.exports = callback => {
         if (err)
           return callback('unknown_error');
 
-        return callback(null, {
-          blockHash: header.hash.toString(),
-          blockNumber: header.number.toNumber()
-        });
+        initializedAPI.rpc.chain
+          .getBlock(header.hash, (err, block) => {
+            if (err)
+              return callback('unknown_error');
+
+            return callback(null, block);
+          });
       });
   });
 };
