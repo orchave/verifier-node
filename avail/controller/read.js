@@ -1,9 +1,9 @@
 const { initialize } = require('avail-js-sdk');
 
-const ClientConfig = require('../ClientConfig.json');
+const ClientConfig = require('../ClientConfig');
 
 module.exports = callback => {
-  initialize(ClientConfig.endpoint, (err, initializedAPI) => {
+  initialize(ClientConfig.rpcEndpoint, (err, initializedAPI) => {
     if (err)
       return callback('rpc_connection_error');
 
