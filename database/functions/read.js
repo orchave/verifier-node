@@ -1,9 +1,12 @@
 // Read from local file database with the given key
 
 const fs = require('fs');
+const path = require('path');
+
+const PATH = path.join(__dirname, '../data.txt');
 
 module.exports = (key, callback) => {
-  fs.readFile('../data.txt', (err, _file) => {
+  fs.readFile(PATH, (err, _file) => {
     if (err) return callback('fs_read_error');
 
     try {

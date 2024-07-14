@@ -4,7 +4,7 @@ const writeAvail = require('../../avail/controller/write');
 const readDatabase = require('../../database/functions/read');
 const writeDatabase = require('../../database/functions/write');
 
-const verifyBlock = require('../../utils/verifyBlock');
+const verifyBlock = require('../../utils/getFileFromFilecoinAndSign');
 
 module.exports = callback => {
   readAvail((err, latest_block) => {
@@ -29,4 +29,4 @@ module.exports = callback => {
       });
     });
   });
-}
+};

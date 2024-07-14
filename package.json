@@ -17,8 +17,17 @@
   },
   "homepage": "https://github.com/orchave/verifier-node#readme",
   "dependencies": {
+    "@metamask/abi-utils": "^2.0.4",
+    "@metamask/utils": "^9.0.0",
+    "avail-js-sdk": "^0.2.12",
+    "body-parser": "^1.20.2",
+    "cluster": "^0.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
     "node-cron": "^3.0.3",
-    "node-fetch": "^2.6.9"
+    "node-fetch": "^2.6.9",
+    "path": "^0.12.7"
   }
 }

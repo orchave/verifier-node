@@ -1,7 +1,7 @@
 const readDatabase = require('../../database/functions/read');
 const writeDatabase = require('../../database/functions/write');
 
-const readFilecoin = require('../../filecoin/read');
+const readFilecoinState = require('../../filecoin/state/read');
 
 module.exports = callback => {
   readDatabase('verifiers_list', (err, verifiers) => {
@@ -10,7 +10,7 @@ module.exports = callback => {
     if (!Array.isArray(verifiers))
       verifiers = [];
 
-    readFilecoin('verifiers', (err, filecoin_verifiers) => {
+    readFilecoinState('verifiers', (err, filecoin_verifiers) => {
       if (err) return callback(err);
 
       filecoin_verifiers.forEach(verifier => {

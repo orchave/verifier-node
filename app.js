@@ -48,6 +48,37 @@ if (cluster.isMaster) {
 
   app.get('/gossip', gossipGetController);
 
+  const abiEncodeStringArray = require('./utils/abiEncodeStringArray');
+  const hashUTF8 = require('./utils/hashUTF8');
+  const MerkleTree = require('./merkle-tree/MerkleTree');
+
+  const array = ['a', 'b', 'c'];
+  const index = 2;
+
+  console.log("here");
+
+  MerkleTree.createTree(array, (err, id) => {
+    if (err) return console.error(err);
+
+    console.log(id);
+
+    MerkleTree.generateWitness(id, index, (err, witness) => {
+      if (err) return console.error(err);
+
+      console.log(witness);
+
+      MerkleTree.generateRootFromWitness(array[index], witness, (err, generateRoot) => {
+        if (err) return console.error(err);
+
+        MerkleTree.getRoot(id, (err, root) => {
+          if (err) return console.error(err);
+
+          console.log(generateRoot, root);
+        });
+      });
+    });
+  });
+
   server.listen(PORT, () => {
     if (cluster.worker.id == 1)
       Job.start(() => {
