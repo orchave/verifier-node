@@ -1,4 +1,3 @@
-// const { initialize } = require('avail-js-sdk');
 const { exec } = require('child_process');
 
 const ClientConfig = require('../ClientConfig');
