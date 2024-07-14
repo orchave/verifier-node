@@ -1,4 +1,5 @@
 {
+  "merkle_tree": {},
   "verifiers_list": [],
-  "merkle_tree": {}
+  "verified_gossip_cid_list": []
 }
