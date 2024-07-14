@@ -13,8 +13,6 @@ module.exports = (key, data, callback) => {
       const file = JSON.parse(_file);
       file[key] = data;
 
-      console.log(file);
-
       fs.writeFile(PATH, JSON.stringify(file), err => {
         if (err) return callback('fs_read_error');
     
